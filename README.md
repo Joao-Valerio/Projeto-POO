@@ -2,43 +2,44 @@
 Este projeto é um sistema de gerenciamento de clientes, produtos e pedidos desenvolvido em Python, utilizando o ORM Peewee com SQLite como banco de dados.
 
 📦 Funcionalidades
+
 👥 Clientes
-Criar cliente
+  Criar cliente
 
-Listar clientes
+  Listar clientes
 
-Atualizar cliente
+  Atualizar cliente
 
-Excluir cliente
+  Excluir cliente
 
 🛒 Produtos
-Cadastrar produto
+  Cadastrar produto
 
-Listar produtos
+  Listar produtos
 
-Atualizar produto
+  Atualizar produto
 
-Excluir produto
+  Excluir produto
 
 📑 Pedidos
-Criar pedido para um cliente
+  Criar pedido para um cliente
 
-Adicionar itens ao pedido
+  Adicionar itens ao pedido
 
-Listar pedidos
+  Listar pedidos
 
-Excluir pedidos
+  Excluir pedidos
 
 🗃️ Estrutura do Banco de Dados
-O banco dados.db contém as seguintes tabelas:
+  O banco dados.db contém as seguintes tabelas:
 
-User: Armazena nome e CPF dos clientes.
+  User: Armazena nome e CPF dos clientes.
 
-Product: Armazena nome e preço dos produtos.
+  Product: Armazena nome e preço dos produtos.
 
-Order: Armazena o pedido com cliente, data e valor total.
+  Order: Armazena o pedido com cliente, data e valor total.
 
-ProductOrder: Relaciona pedidos com produtos e suas quantidades.
+  ProductOrder: Relaciona pedidos com produtos e suas quantidades.
 
 🧑‍💻 Autor
-Desenvolvido por João Valério Santana
+  Desenvolvido por João Valério Santana

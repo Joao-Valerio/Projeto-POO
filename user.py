@@ -4,7 +4,8 @@ from datetime import datetime
 def createUser():
     name = input("Nome: ")
     cpf = input("Cpf: ")
-    models.User.create(name=name, cpf=cpf)
+    password = input("Senha: ")
+    models.User.create(name=name, cpf=cpf, password=password)
     print("\n Cliente criado com sucesso!")
 
 def selectUser():

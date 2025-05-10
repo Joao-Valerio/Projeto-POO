@@ -34,8 +34,8 @@ def itemsOrder(pedido):
         productName = input("Nome do produto a adicionar (0 para terminar): ")
         if productName == "0":
             break
-        elif models.Product.select().where(models.Product.name == productName).exists():
-            product = models.Product.get(productName)
+        elif models.Product.select().where(models.Product.productName == productName).exists():
+            product = models.Product.get(models.Product.productName == productName)
             quantidade = int(input("Quantidade: "))
             models.ProductOrder.create(pedido=pedido, produto=product, quantidade=quantidade)
             print(f"{quantidade}x {product.productName} adicionado(s) ao pedido {pedido.id}.")

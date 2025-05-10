@@ -1,8 +1,8 @@
-import models
 import user
 import product
 import orders
-from datetime import datetime
+import logins
+import creator
        
 def userMenu():
     while (True):
@@ -117,31 +117,7 @@ def clientMenu(user):
 
 def create():
     while (True):
-        name = input("\nNome: ")
-        cpf = input("Cpf: ")
-        password = input("Senha: ")
-        print("\n1 - Criar um cliente")
-        print("2 - Criar administrador")
-        op = input("Escolha: ")
-        userExisting = models.User.select().where(
-        (models.User.name == name) & (models.User.password == password)
-    ).first()
-
-        if userExisting:
-            print("Já existe um usuário com esse nome e senha. Tente novamente.")
-            return
-        elif op == "1":
-            models.User.create(name=name, cpf=cpf, password=password, isAdmin = False)
-            print("\n Cliente criado com sucesso!")
-            break
-        elif op == "2":
-            verificationCode = input("Crie um codigo para verificar: ")
-            models.User.create(name=name, cpf=cpf, password=password, verificationCode = verificationCode, isAdmin = True)
-            print("\n Admin criado com sucesso!")
-            break
-        else:
-            print("Opcao invalida")
-    
+        creator.creator()
 
 def login():
     while (True):
@@ -150,25 +126,10 @@ def login():
         print("0 - Sair")
         op = input("Escolha: ")
         if op == "1":
-            name = input("Usuário: ")
-            password = input("Senha: ")
-
-            currentUser = models.User.get(models.User.name == name)
-            if currentUser.password == password and not currentUser.isAdmin:
-                print("Login efetuado com sucesso")
-                clientMenu(currentUser)
-                return currentUser
-            else:
-                print("Senha incorreta")
+            logins.loginClient()
         elif op == "2":
-            name = input("Usuário: ")
-            password = input("Senha: ")  
-            code = input("Código de verificação: ")
-            currentUser = models.User.get(models.User.name == name)
-            if currentUser.password == password:
-                if code == currentUser.verificationCode:
-                    print("login como admin feito")
-                    menu()
+            logins.loginAdmin()
+            menu()
         
         elif op == "0":
             print("Saindo...")

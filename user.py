@@ -1,5 +1,4 @@
 import models
-from datetime import datetime
 
 def createUser():
     name = input("Nome: ")

@@ -12,6 +12,9 @@ class BaseModel(Model):
 class User(BaseModel):
     name = CharField()
     cpf = CharField(unique=True)
+    password = CharField()
+    verificationCode = CharField(unique = True, null = True)
+    isAdmin = BooleanField(default=False)
 
     def __str__(self):
         return f"{self.id} - {self.name} ({self.cpf})"

@@ -1,5 +1,4 @@
 import models
-from datetime import datetime
 
 def createProduct():
     productName = input("Qual o nome do produto: ")

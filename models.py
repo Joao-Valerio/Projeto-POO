@@ -19,7 +19,6 @@ class User(BaseModel):
     def __str__(self):
         return f"{self.id} - {self.name} ({self.cpf})"
 
-
 class Order(BaseModel):
     user = ForeignKeyField(User, backref='pedidos')
     orderDate = DateTimeField(default=datetime.now)

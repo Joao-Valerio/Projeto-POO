@@ -31,11 +31,11 @@ def updateOrder():
 
 def itemsOrder(pedido):
     while True:
-        productId = input("ID do produto a adicionar (0 para terminar): ")
-        if productId == "0":
+        productName = input("Nome do produto a adicionar (0 para terminar): ")
+        if productName == "0":
             break
-        if models.Product.select().where(models.Product.id == productId).exists():
-            product = models.Product.get_by_id(productId)
+        elif models.Product.select().where(models.Product.name == productName).exists():
+            product = models.Product.get(productName)
             quantidade = int(input("Quantidade: "))
             models.ProductOrder.create(pedido=pedido, produto=product, quantidade=quantidade)
             print(f"{quantidade}x {product.productName} adicionado(s) ao pedido {pedido.id}.")
@@ -43,3 +43,22 @@ def itemsOrder(pedido):
             pedido.save()
         else:
             print("Produto não encontrado.")
+
+def listCustomerOrder(user):
+    print(f"\n--- Lista de Pedidos do cliente {user} ---")
+    orders = models.Order.select().where(models.Order.user == user).order_by(models.Order.id)
+
+    if not orders:
+        print("Nenhum pedido encontrado.")
+        return
+
+    for order in orders:
+        print(f"ID: {order.id}, Cliente: {order.user.name} (ID: {order.user.id}), "
+              f"Data: {order.orderDate.strftime('%d/%m/%Y %H:%M:%S')}, Total: R$ {order.totalPrice:.2f}")
+        
+def createCustomerOrder(user):
+    newOrder = models.Order.create(
+    user=user, orderDate=datetime.now(), totalPrice=0.0)
+    print(f"Pedido {newOrder.id} criado para o cliente {user.name}.")
+    itemsOrder(newOrder)   
+    

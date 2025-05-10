@@ -99,6 +99,101 @@ def menu():
         else:
             print("Opção inválida. Tente novamente.")
 
+def clientMenu(user):
+    while True:
+        print("\n--- Menu Cliente ---")
+        print("1 - Fazer pedido")
+        print("2 - Ver meus pedidos")
+        print("0 - Sair")
+        op = input("Escolha: ")
+        if op == "1":
+            orders.createCustomerOrder(user)
+        elif op == "2": 
+            orders.listCustomerOrder(user)
+        elif op == "0":
+            break
+        else:
+            print("Opção inválida.")
+
+def create():
+    while (True):
+        name = input("\nNome: ")
+        cpf = input("Cpf: ")
+        password = input("Senha: ")
+        print("\n1 - Criar um cliente")
+        print("2 - Criar administrador")
+        op = input("Escolha: ")
+        userExisting = models.User.select().where(
+        (models.User.name == name) & (models.User.password == password)
+    ).first()
+
+        if userExisting:
+            print("Já existe um usuário com esse nome e senha. Tente novamente.")
+            return
+        elif op == "1":
+            models.User.create(name=name, cpf=cpf, password=password, isAdmin = False)
+            print("\n Cliente criado com sucesso!")
+            break
+        elif op == "2":
+            verificationCode = input("Crie um codigo para verificar: ")
+            models.User.create(name=name, cpf=cpf, password=password, verificationCode = verificationCode, isAdmin = True)
+            print("\n Admin criado com sucesso!")
+            break
+        else:
+            print("Opcao invalida")
+    
+
+def login():
+    while (True):
+        print("\n1 - Entrar como Cliente")
+        print("2 - Entrar como administrador")
+        print("0 - Sair")
+        op = input("Escolha: ")
+        if op == "1":
+            name = input("Usuário: ")
+            password = input("Senha: ")
+
+            currentUser = models.User.get(models.User.name == name)
+            if currentUser.password == password and not currentUser.isAdmin:
+                print("Login efetuado com sucesso")
+                clientMenu(currentUser)
+                return currentUser
+            else:
+                print("Senha incorreta")
+        elif op == "2":
+            name = input("Usuário: ")
+            password = input("Senha: ")  
+            code = input("Código de verificação: ")
+            currentUser = models.User.get(models.User.name == name)
+            if currentUser.password == password:
+                if code == currentUser.verificationCode:
+                    print("login como admin feito")
+                    menu()
+        
+        elif op == "0":
+            print("Saindo...")
+            break
+
+        else:
+            print("Opção inválida, tente novamente")
+
+def start():
+    while (True):
+        print("\n1 - Criar conta")
+        print("2 - Login")
+        print("0 - Sair")
+        op = input("Escolha: ")
+        if op == "1":
+            create()
+    
+        elif op == "2":
+            login()
+
+        elif op == "0":
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida!")
 
 if __name__ == '__main__':
-    menu()
+    start()

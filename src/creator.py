@@ -1,5 +1,6 @@
 import models as models
 
+# Menu de criação de conta
 def creator():
     name = input("\nNome: ")
     cpf = input("Cpf: ")
@@ -24,10 +25,13 @@ def creator():
     else:
         print("Opção inválida")
 
+
+# Cria cliente comum
 def creatorClient(name, cpf, password):
     models.User.create(name=name, cpf=cpf, password=password, isAdmin=False)
     print("\nCliente criado com sucesso!")
 
+# Cria administrador com código de verificação
 def creatorAdmin(name, cpf, password):
     verificationCode = input("Crie um código de verificação: ")
     models.User.create(name=name, cpf=cpf, password=password, verificationCode=verificationCode, isAdmin=True)

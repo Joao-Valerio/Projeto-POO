@@ -1,6 +1,7 @@
 import models as models
 import app as app
 
+# Função para login de administradores
 def loginAdmin():
     name = input("Usuário: ")
     password = input("Senha: ")  
@@ -10,6 +11,7 @@ def loginAdmin():
         if code == currentUser.verificationCode:
             print("login como admin feito")
 
+# Função para login de clientes (usuários comuns)
 def loginClient():
             name = input("Usuário: ")
             password = input("Senha: ")

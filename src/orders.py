@@ -1,4 +1,4 @@
-import models
+import models as models
 from datetime import datetime
 
 def createOrder():

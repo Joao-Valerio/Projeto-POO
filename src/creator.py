@@ -1,4 +1,4 @@
-import models
+import models as models
 
 def creator():
     name = input("\nNome: ")

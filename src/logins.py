@@ -1,5 +1,5 @@
-import models
-import app
+import models as models
+import app as app
 
 def loginAdmin():
     name = input("Usuário: ")

@@ -1,4 +1,4 @@
-import models
+import models as models
 
 def createProduct():
     productName = input("Qual o nome do produto: ")

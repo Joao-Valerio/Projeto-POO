@@ -1,4 +1,4 @@
-import models
+import models as models
 
 def createUser():
     name = input("Nome: ")

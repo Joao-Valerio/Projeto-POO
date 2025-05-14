@@ -1,8 +1,8 @@
-import user
-import product
-import orders
-import logins
-import creator
+import user as user
+import product as product
+import orders as orders
+import logins as logins
+import creator as creator
        
 def userMenu():
     while (True):

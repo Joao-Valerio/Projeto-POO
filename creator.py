@@ -15,11 +15,11 @@ def creator():
 
     print("\n1 - Criar Cliente")
     print("2 - Criar Administrador")
-    op = input("Escolha: ")
+    option = input("Escolha: ")
 
-    if op == "1":
+    if option == "1":
         creatorClient(name, cpf, password)
-    elif op == "2":
+    elif option == "2":
         creatorAdmin(name, cpf, password)
     else:
         print("Opção inválida")

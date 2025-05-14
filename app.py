@@ -12,17 +12,17 @@ def userMenu():
         print("3 - Excluir clientes")
         print("4 - Atualizar clientes")
         print("0 - Voltar")
-        op = input("Escolha: ")
+        option = input("Escolha: ")
 
-        if op == "1":
+        if option == "1":
             user.createUser()
-        elif op == "2":
+        elif option == "2":
             user.selectUser()
-        elif op == "3":
+        elif option == "3":
             user.deleteUser()
-        elif op == "4":
+        elif option == "4":
             user.updateUser()
-        elif op == "0":
+        elif option == "0":
             break
         else:
             print("Opção inválida, escolha outra")
@@ -36,17 +36,17 @@ def productsMenu():
         print("3 - Excluir produtos")
         print("4 - Atualizar produtos")
         print("0 - Voltar")
-        op = input("Escolha: ")
+        option = input("Escolha: ")
 
-        if op == "1":
+        if option == "1":
             product.createProduct()
-        elif op == "2":
+        elif option == "2":
             product.selectProduct()
-        elif op == "3":
+        elif option == "3":
             product.deleteProduct()
-        elif op == "4":
+        elif option == "4":
             product.updateProduct()
-        elif op == "0":
+        elif option == "0":
             break
         else:
             print("Opção inválida. Tente novamente.")
@@ -60,17 +60,17 @@ def ordersMenu():
         print("3 - Excluir pedidos")
         print("4 - Adicionar itens ao pedido")
         print("0 - Voltar")
-        op = input("Escolha: ")
+        option = input("Escolha: ")
 
-        if op == "1":
+        if option == "1":
             orders.createOrder()
-        elif op == "2":
+        elif option == "2":
             orders.selectOrder()
-        elif op == "3":
+        elif option == "3":
             orders.deleteOrder()
-        elif op == "4":
+        elif option == "4":
             orders.updateOrder()
-        elif op == "0":
+        elif option == "0":
             break
 
         else:
@@ -105,12 +105,12 @@ def clientMenu(user):
         print("1 - Fazer pedido")
         print("2 - Ver meus pedidos")
         print("0 - Sair")
-        op = input("Escolha: ")
-        if op == "1":
+        option = input("Escolha: ")
+        if option == "1":
             orders.createCustomerOrder(user)
-        elif op == "2": 
+        elif option == "2": 
             orders.listCustomerOrder(user)
-        elif op == "0":
+        elif option == "0":
             break
         else:
             print("Opção inválida.")
@@ -124,14 +124,14 @@ def login():
         print("\n1 - Entrar como Cliente")
         print("2 - Entrar como administrador")
         print("0 - Sair")
-        op = input("Escolha: ")
-        if op == "1":
+        option = input("Escolha: ")
+        if option == "1":
             logins.loginClient()
-        elif op == "2":
+        elif option == "2":
             logins.loginAdmin()
             menu()
         
-        elif op == "0":
+        elif option == "0":
             print("Saindo...")
             break
 
@@ -143,18 +143,18 @@ def start():
         print("\n1 - Criar conta")
         print("2 - Login")
         print("0 - Sair")
-        op = input("Escolha: ")
-        if op == "1":
+        option = input("Escolha: ")
+        if option == "1":
             create()
     
-        elif op == "2":
+        elif option == "2":
             login()
 
-        elif op == "0":
+        elif option == "0":
             print("Saindo...")
             break
         else:
             print("Opção inválida!")
 
 if __name__ == '__main__':
-    start()
+    start() 

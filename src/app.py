@@ -3,7 +3,9 @@ import product as product
 import orders as orders
 import logins as logins
 import creator as creator
-       
+
+
+# Menu de gerenciamento de clientes
 def userMenu():
     while (True):
         print("\n--- Menu Clientes ---")
@@ -27,7 +29,7 @@ def userMenu():
         else:
             print("Opção inválida, escolha outra")
 
-
+# Menu de gerenciamento de produtos
 def productsMenu():
     while (True):
         print("\n--- Menu Produtos ---")
@@ -51,7 +53,7 @@ def productsMenu():
         else:
             print("Opção inválida. Tente novamente.")
 
-
+# Menu de gerenciamento de pedidos
 def ordersMenu():
     while (True):
         print("\n--- Menu de Pedidos ---")
@@ -76,8 +78,7 @@ def ordersMenu():
         else:
             print("Opção inválida. Tente novamente.")        
 
-
-
+# Menu principal do sistema
 def menu():
     while (True):
         print("\n--- Menu Principal ---")
@@ -99,6 +100,7 @@ def menu():
         else:
             print("Opção inválida. Tente novamente.")
 
+# Menu para cliente logado
 def clientMenu(user):
     while True:
         print("\n--- Menu Cliente ---")
@@ -115,10 +117,11 @@ def clientMenu(user):
         else:
             print("Opção inválida.")
 
+# Tela de criação de conta
 def create():
-    while (True):
         creator.creator()
 
+# Tela de login
 def login():
     while (True):
         print("\n1 - Entrar como Cliente")
@@ -138,6 +141,7 @@ def login():
         else:
             print("Opção inválida, tente novamente")
 
+# Função principal que inicia o sistema
 def start():
     while (True):
         print("\n1 - Criar conta")
@@ -156,5 +160,6 @@ def start():
         else:
             print("Opção inválida!")
 
+# Executa o sistema
 if __name__ == '__main__':
     start() 

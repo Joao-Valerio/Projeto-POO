@@ -42,4 +42,5 @@ Este projeto é um sistema de gerenciamento de clientes, produtos e pedidos dese
   ProductOrder: Relaciona pedidos com produtos e suas quantidades.
 
 🧑‍💻 Autor
-  Desenvolvido por João Valério Santana
+  Desenvolvido por  
+  João Valério Santana e Felipe Melhado
